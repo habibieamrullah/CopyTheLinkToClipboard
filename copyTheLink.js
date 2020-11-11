@@ -36,7 +36,8 @@ function letsGetjQuery(){
 //form initialisation
 function initCtl(){
 	clearInterval(jCheckInterval);
-	$("body").append("<div id='sharerpopup' style='position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,.65); backdrop-filter: blur(5px); padding: 40px;'><div style='background-color: white; border-radius: 10px; padding: 20px;'><textarea id='texttocopy' style='width: 100%; box-sizing: border-box; height: 128px;'>" + customText + location.href + "</textarea><button onclick='copyTheText()'>Copy The Text</button><button onclick='closeThePopUp()'>Close</button></div></div>");
+	$("#sharerpopup").remove();
+	$("body").append("<div id='sharerpopup' style='position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background-color: rgba(0,0,0,.5); backdrop-filter: blur(5px); padding: 40px;'><div style='background-color: white; border-radius: 10px; padding: 20px;'><textarea id='texttocopy' style='width: 100%; box-sizing: border-box; height: 128px;'>" + customText + location.href + "</textarea><button onclick='copyTheText()'>Copy The Text</button><button onclick='closeThePopUp()'>Close</button></div></div>");
 }
 
 //Function to show the form
