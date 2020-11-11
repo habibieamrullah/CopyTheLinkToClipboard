@@ -5,6 +5,7 @@ Visit my blog http://thirteenov.ciihuy.com/
 */
 
 var customText = "Hey check out this link:\n\n";
+var sharedlink = "https://www.youtube.com/ThirteeNov/";
 var loadingJquery = false;
 var jCheckInterval;
 
@@ -37,13 +38,27 @@ function letsGetjQuery(){
 function initCtl(){
 	clearInterval(jCheckInterval);
 	$("#sharerpopup").remove();
-	$("body").append("<div id='sharerpopup' style='position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background-color: rgba(0,0,0,.5); backdrop-filter: blur(5px); padding: 40px;'><div style='background-color: white; border-radius: 10px; padding: 20px;'><textarea id='texttocopy' style='width: 100%; box-sizing: border-box; height: 128px;'>" + customText + location.href + "</textarea><button onclick='copyTheText()'>Copy The Text</button><button onclick='closeThePopUp()'>Close</button></div></div>");
+	$("body").append("<div id='sharerpopup' style='position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; background-color: rgba(0,0,0,.5); backdrop-filter: blur(5px); padding: 40px;'><div style='background-color: white; border-radius: 10px; padding: 20px;'><textarea id='texttocopy' style='width: 100%; box-sizing: border-box; height: 128px;'>" + customText + sharedlink + "</textarea><button onclick='copyTheText()'>Copy The Text</button><button onclick='closeThePopUp()'>Close</button></div></div>");
 }
 
 //Function to show the form
 function showTheForm(ct){
 	if(ct != undefined){
 		customText = ct + "\n\n";
+	}
+	sharedlink = location.href;
+	jQueryCheck();
+}
+
+//Function to show the form
+function showCustomLinkForm(ct, lnk){
+	if(ct != undefined){
+		customText = ct + "\n\n";
+	}
+	if(lnk != undefined){
+		sharedlink = lnk;
+	}else{
+		sharedlink = location.href;
 	}
 	jQueryCheck();
 }
