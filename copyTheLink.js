@@ -40,7 +40,10 @@ function initCtl(){
 }
 
 //Function to show the form
-function showTheForm(){
+function showTheForm(ct){
+	if(ct != undefined){
+		customText = ct + "\n\n";
+	}
 	jQueryCheck();
 }
 
